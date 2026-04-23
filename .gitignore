@@ -1,0 +1,35 @@
+# ╔══════════════════════════════════════════════════════════════╗
+# ║  Bionerika Agency — .gitignore                                   ║
+# ╚══════════════════════════════════════════════════════════════╝
+
+# Зависимости
+node_modules/
+.pnpm-store/
+src/config.js  
+.package-lock.json
+
+# Сборка
+dist/
+build/
+
+# Окружение
+.env
+.env.local
+.env.*.local
+
+# Редакторы
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Логи
+*.log
+npm-debug.log*
+
+
+# readme.md 
+*.SETUP.md
+*.README.md

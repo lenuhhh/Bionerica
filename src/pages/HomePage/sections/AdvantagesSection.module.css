@@ -1,0 +1,10 @@
+.top { text-align: center; margin-bottom: 48px; }
+.title { font-size: clamp(1.8rem,4vw,2.6rem); margin-top: 8px; }
+.grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+@media(max-width:900px){ .grid { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:500px){ .grid { grid-template-columns: 1fr; } }
+.card { background: var(--cream); border-radius: var(--radius-sm); padding: 28px 24px; }
+.icon { font-size: 32px; margin-bottom: 14px; }
+.cardTitle { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+.cardDesc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+.iconWrap { width:56px;height:56px;background:rgba(74,124,89,.1);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:16px; }

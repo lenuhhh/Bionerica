@@ -1,0 +1,257 @@
+.page { padding: 48px 0 80px; min-height: 70vh; }
+
+.loadingWrap { display:flex;align-items:center;justify-content:center;min-height:50vh; }
+.spinner { width:36px;height:36px;border:3px solid #e8e3d8;border-top-color:var(--green-accent);border-radius:50%;animation:spin .8s linear infinite; }
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Hero */
+.hero {
+  display:flex;align-items:center;gap:20px;
+  background:var(--dark);border-radius:20px;padding:28px 32px;margin-bottom:14px;
+  position:relative;overflow:hidden;
+}
+.hero::before {
+  content:'';position:absolute;inset:0;
+  background-image:url('https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=800&q=60&fit=crop');
+  background-size:cover;background-position:center;opacity:.1;pointer-events:none;
+}
+.avatarWrap { position:relative;flex-shrink:0; }
+.avatarImg  { width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.25);position:relative;z-index:1; }
+.avatar     { width:64px;height:64px;background:linear-gradient(135deg,#4a7c59,#2d4a2d);border:3px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:#fff;position:relative;z-index:1; }
+.avatarOnline { position:absolute;bottom:2px;right:2px;width:14px;height:14px;background:#4caf50;border:2px solid #1a2e1a;border-radius:50%;z-index:2; }
+.heroInfo   { flex:1;min-width:0;position:relative;z-index:1; }
+.heroName   { font-size:22px;font-weight:700;color:#fff;margin:0 0 4px; }
+.heroEmail  { font-size:13px;color:rgba(255,255,255,.45);margin-bottom:6px; }
+.heroJoined { display:flex;align-items:center;gap:5px;font-size:12px;color:rgba(255,255,255,.35); }
+.logoutBtn  { position:relative;z-index:1;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.65);border-radius:10px;padding:8px 14px;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap; }
+.logoutBtn:hover { background:rgba(255,255,255,.18);color:#fff; }
+
+/* Stats */
+.stats { display:flex;align-items:center;background:#fff;border-radius:14px;padding:20px;margin-bottom:22px;box-shadow:0 2px 12px rgba(0,0,0,.06); }
+.stat  { flex:1;text-align:center; }
+.statNum { font-size:26px;font-weight:700;color:var(--dark);font-family:var(--font-serif); }
+.statLbl { font-size:11px;color:var(--text-muted);margin-top:2px; }
+.statDiv { width:1px;background:#f0ece3;height:36px; }
+
+/* Tabs */
+.tabsRow { display:flex;gap:3px;background:#f5f2ec;border-radius:14px;padding:5px;margin-bottom:22px; }
+.tabBtn  { flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 10px;background:none;border:none;border-radius:10px;font-size:13px;font-weight:600;color:var(--text-muted);cursor:pointer;transition:all .15s;position:relative; }
+.tabBtn:hover { color:var(--dark); }
+.tabActive { background:#fff;color:var(--dark);box-shadow:0 1px 6px rgba(0,0,0,.08); }
+.tabBadge { position:absolute;top:6px;right:6px;background:var(--green-accent);color:#fff;border-radius:20px;padding:1px 6px;font-size:10px;font-weight:700; }
+
+.section { animation:fadeIn .2s ease; }
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* Empty */
+.empty { text-align:center;padding:60px 20px;color:var(--text-muted); }
+.empty p { margin:12px 0;font-size:15px; }
+
+/* Orders */
+.orderList { display:flex;flex-direction:column;gap:10px; }
+.orderCard { background:#fff;border-radius:14px;border:1.5px solid #f0ece3;overflow:hidden;transition:border-color .15s; }
+.orderCard:hover { border-color:#c8d8c8; }
+.orderHead { display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;gap:12px; }
+.orderId   { font-size:13px;font-weight:700;color:var(--dark);font-family:monospace; }
+.orderDate { font-size:12px;color:var(--text-muted);margin-top:2px; }
+.orderRight { display:flex;align-items:center;gap:14px; }
+.orderStatus { font-size:12px;font-weight:600; }
+.orderTotal  { font-size:16px;font-weight:700;color:var(--dark); }
+.orderBody   { border-top:1px solid #f5f2ec;padding:16px 20px; }
+.orderItems  { display:flex;flex-direction:column;gap:8px;margin-bottom:14px; }
+.orderItem   { display:flex;align-items:center;gap:10px;font-size:13px; }
+.orderItemImg  { width:36px;height:36px;border-radius:8px;object-fit:cover;flex-shrink:0; }
+.orderItemName { flex:1;color:var(--dark); }
+.orderItemQty  { color:var(--text-muted); }
+.orderItemPrice { font-weight:700;color:var(--dark);min-width:70px;text-align:right; }
+.orderMeta  { display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--text-muted);margin-bottom:14px;padding:10px;background:#fafaf7;border-radius:8px; }
+.receiptBtn { display:inline-flex;align-items:center;gap:6px;background:none;border:1.5px solid #e8e3d8;border-radius:8px;padding:7px 14px;font-size:12px;font-weight:600;color:var(--dark);cursor:pointer;transition:all .15s; }
+.receiptBtn:hover { border-color:var(--green-accent);color:var(--green-accent); }
+
+/* Favorites */
+.favHint { font-size:13px;color:var(--text-muted);margin-bottom:18px; }
+.favGrid { display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px; }
+.favCard { background:#fff;border-radius:16px;border:1.5px solid #f0ece3;overflow:hidden;transition:border-color .15s,transform .15s; }
+.favCard:hover { border-color:#c8d8c8;transform:translateY(-2px); }
+.favImgWrap { position:relative; }
+.favImg { width:100%;aspect-ratio:1;object-fit:cover;display:block; }
+.favRemoveBtn { position:absolute;top:8px;right:8px;width:28px;height:28px;background:rgba(0,0,0,.5);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:background .15s; }
+.favRemoveBtn:hover { background:rgba(200,0,0,.8); }
+.favInfo { padding:12px 12px 8px; }
+.favName   { font-size:14px;font-weight:700;color:var(--dark);margin-bottom:3px; }
+.favOrigin { font-size:11px;color:var(--text-muted);margin-bottom:6px; }
+.favPrice  { font-size:16px;font-weight:700;color:var(--dark); }
+.favOrderBtn { display:block;margin:0 12px 12px;padding:9px;background:var(--dark);color:#fff;border-radius:10px;font-size:13px;font-weight:600;text-align:center;text-decoration:none;transition:background .15s; }
+.favOrderBtn:hover { background:#2d4a2d; }
+
+/* Reviews */
+.reviewForm { background:#fff;border-radius:16px;padding:28px;border:1.5px solid #f0ece3;margin-bottom:24px; }
+.reviewFormTitle { display:flex;align-items:center;gap:10px;font-size:17px;font-weight:700;color:var(--dark);margin:0 0 6px; }
+.reviewFormSub   { font-size:13px;color:var(--text-muted);margin:0 0 20px; }
+.fieldLabel      { display:flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px; }
+.starsRow { display:flex;align-items:center;gap:3px;margin-bottom:18px; }
+.starBtn  { font-size:28px;background:none;border:none;cursor:pointer;color:#e0dbd2;transition:color .12s,transform .12s;padding:0;line-height:1; }
+.starBtn:hover,.starOn { color:#f5a623; }
+.starBtn:hover { transform:scale(1.15); }
+.ratingLabel { font-size:13px;color:var(--text-muted);margin-left:6px; }
+.reviewInput,.reviewTextarea { width:100%;padding:10px 13px;border:1.5px solid #e8e3d8;border-radius:10px;font-size:14px;color:var(--dark);background:#fafaf7;transition:border-color .15s;box-sizing:border-box;font-family:inherit; }
+.reviewInput:focus,.reviewTextarea:focus { outline:none;border-color:var(--green-accent);box-shadow:0 0 0 3px rgba(74,124,89,.1);background:#fff; }
+.reviewTextarea { resize:vertical;min-height:100px; }
+.reviewError { background:#fff4f4;border:1px solid #fcc;border-radius:8px;padding:8px 12px;font-size:13px;color:#c00;margin-bottom:12px; }
+.reviewSuccess { text-align:center;padding:40px 20px;background:#f0f7f0;border-radius:16px;margin-bottom:24px; }
+.reviewSuccess h3 { font-size:20px;color:var(--dark);margin:12px 0 8px; }
+.reviewSuccess p  { color:var(--text-muted);font-size:14px;margin:0 0 16px; }
+.reviewAgainBtn { background:none;border:1.5px solid var(--green-accent);color:var(--green-accent);border-radius:8px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s; }
+.reviewAgainBtn:hover { background:var(--green-accent);color:#fff; }
+.myReviews { margin-top:8px; }
+.myReviewsTitle { font-size:15px;font-weight:700;color:var(--dark);margin:0 0 12px; }
+.myReviewCard { background:#fff;border-radius:12px;padding:16px;border:1.5px solid #f0ece3;margin-bottom:10px; }
+.myReviewHeader { display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap; }
+.myReviewStars  { color:#f5a623;font-size:15px; }
+.myReviewDate   { font-size:11px;color:var(--text-muted);flex:1; }
+.myReviewStatus { font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px; }
+.approved { background:#e6f2e6;color:#2d6e3a; }
+.pending  { background:#fdf4e7;color:#c47a3a; }
+.myReviewRole { font-size:12px;color:var(--text-muted);margin-bottom:6px;font-style:italic; }
+.myReviewText { font-size:13px;color:var(--dark);line-height:1.6;margin:0; }
+
+/* Settings */
+.settingsCard { background:#fff;border-radius:16px;padding:28px;border:1.5px solid #f0ece3;margin-bottom:16px; }
+.settingsHeader { display:flex;align-items:center;justify-content:space-between;margin-bottom:20px; }
+.settingsHeader h3 { font-size:17px;font-weight:700;color:var(--dark);margin:0; }
+.providerBadge { display:inline-flex;align-items:center;gap:8px;background:#f5f2ec;border:1px solid #e8e3d8;border-radius:8px;padding:7px 14px;font-size:13px;font-weight:600;color:var(--dark);margin-bottom:20px; }
+.providerIcon  { display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:var(--dark);color:#fff;border-radius:6px;font-size:11px;font-weight:900;font-style:normal; }
+.providerLabel { color:var(--green-accent);font-size:11px;margin-left:4px; }
+.editBtn { display:flex;align-items:center;gap:6px;background:none;border:1.5px solid #e8e3d8;border-radius:8px;padding:7px 14px;font-size:12px;font-weight:600;color:var(--dark);cursor:pointer;transition:all .15s; }
+.editBtn:hover { border-color:var(--green-accent);color:var(--green-accent); }
+.settingsGrid { display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px; }
+@media(max-width:500px){.settingsGrid{grid-template-columns:1fr;}}
+.settingsInput { width:100%;padding:10px 13px;border:1.5px solid #e8e3d8;border-radius:10px;font-size:14px;color:var(--dark);background:#fafaf7;transition:border-color .15s;box-sizing:border-box; }
+.settingsInput:focus { outline:none;border-color:var(--green-accent);box-shadow:0 0 0 3px rgba(74,124,89,.1);background:#fff; }
+.settingsActions { display:flex;gap:10px; }
+.cancelBtn { background:none;border:1.5px solid #e8e3d8;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;color:var(--text-muted);cursor:pointer;transition:all .15s; }
+.cancelBtn:hover { border-color:#c00;color:#c00; }
+.settingsView { display:flex;flex-direction:column;gap:16px; }
+.settingsRow  { display:flex;align-items:flex-start;gap:14px; }
+.settingsRowLabel { font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:3px; }
+.settingsRowVal   { font-size:15px;font-weight:500;color:var(--dark); }
+.savedMsg { margin-top:14px;background:#f0f7f0;border:1px solid #c8e0c8;border-radius:8px;padding:8px 12px;font-size:13px;color:#2d6e3a; }
+.dangerZone { display:flex;align-items:center;justify-content:space-between;background:#fff8f8;border:1.5px solid #fcc;border-radius:14px;padding:16px 20px; }
+.dangerZone span { font-size:13px;color:#c00;font-weight:600; }
+.logoutDangerBtn { display:flex;align-items:center;gap:6px;background:#c00;border:none;border-radius:8px;padding:8px 16px;font-size:12px;font-weight:700;color:#fff;cursor:pointer;transition:background .15s; }
+.logoutDangerBtn:hover { background:#a00; }
+
+@media(max-width:600px){
+  .hero{flex-wrap:wrap;padding:20px;}
+  .logoutBtn{display:none;}
+  .tabBtn span{display:none;}
+  .favGrid{grid-template-columns:repeat(2,1fr);}
+}
+
+/* ── Dark theme ────────────────────────────────────────────────── */
+:global([data-theme="dark"]) .stats {
+  background: #121f12;
+  box-shadow: 0 2px 12px rgba(0,0,0,.30);
+}
+:global([data-theme="dark"]) .statDiv {
+  background: rgba(100,160,100,0.12);
+}
+:global([data-theme="dark"]) .tabsRow {
+  background: #0d1a0d;
+}
+:global([data-theme="dark"]) .tabActive {
+  background: #1a2e1a;
+  box-shadow: 0 1px 6px rgba(0,0,0,.35);
+}
+:global([data-theme="dark"]) .orderCard {
+  background: #121f12;
+  border-color: rgba(100,160,100,0.12);
+}
+:global([data-theme="dark"]) .orderCard:hover {
+  border-color: rgba(100,160,100,0.30);
+}
+:global([data-theme="dark"]) .orderBody {
+  border-top-color: rgba(100,160,100,0.10);
+}
+:global([data-theme="dark"]) .orderMeta {
+  background: #0d1a0d;
+}
+:global([data-theme="dark"]) .receiptBtn {
+  border-color: rgba(100,160,100,0.20);
+}
+:global([data-theme="dark"]) .receiptBtn:hover {
+  border-color: var(--green-accent);
+}
+:global([data-theme="dark"]) .favCard {
+  background: #121f12;
+  border-color: rgba(100,160,100,0.12);
+}
+:global([data-theme="dark"]) .favCard:hover {
+  border-color: rgba(100,160,100,0.35);
+}
+:global([data-theme="dark"]) .spinner {
+  border-color: rgba(100,160,100,0.15);
+  border-top-color: var(--green-accent);
+}
+:global([data-theme="dark"]) .avatarOnline {
+  border-color: #0d1a0d;
+}
+:global([data-theme="dark"]) .providerBadge {
+  background: #1a2e1a;
+  border-color: rgba(100,160,100,0.20);
+}
+:global([data-theme="dark"]) .editBtn {
+  border-color: rgba(100,160,100,0.20);
+}
+:global([data-theme="dark"]) .editBtn:hover {
+  border-color: var(--green-accent);
+}
+:global([data-theme="dark"]) .settingsInput {
+  background: #121f12;
+  border-color: rgba(100,160,100,0.22);
+  color: var(--dark);
+}
+:global([data-theme="dark"]) .settingsInput:focus {
+  border-color: var(--green-accent);
+  background: #151f15;
+}
+:global([data-theme="dark"]) .cancelBtn {
+  border-color: rgba(100,160,100,0.20);
+  color: var(--text-muted);
+}
+:global([data-theme="dark"]) .savedMsg {
+  background: rgba(74,124,89,0.12);
+  border-color: rgba(100,160,100,0.25);
+  color: #7acf8a;
+}
+:global([data-theme="dark"]) .dangerZone {
+  background: rgba(150,0,0,0.10);
+  border-color: rgba(180,0,0,0.25);
+}
+:global([data-theme="dark"]) .reviewForm {
+  background: #121f12;
+  border-color: rgba(100,160,100,0.15);
+}
+:global([data-theme="dark"]) .reviewInput,
+:global([data-theme="dark"]) .reviewTextarea {
+  background: #0d1a0d;
+  border-color: rgba(100,160,100,0.22);
+  color: var(--dark);
+}
+:global([data-theme="dark"]) .reviewInput:focus,
+:global([data-theme="dark"]) .reviewTextarea:focus {
+  border-color: var(--green-accent);
+  background: #111f11;
+  box-shadow: 0 0 0 3px rgba(74,124,89,.1);
+}
+:global([data-theme="dark"]) .settingsCard {
+  background: #121f12;
+  border-color: rgba(100,160,100,0.15);
+}
+:global([data-theme="dark"]) .myReviewCard {
+  background: #121f12;
+  border-color: rgba(100,160,100,0.15);
+}
+:global([data-theme="dark"]) .reviewSuccess {
+  background: rgba(74,124,89,0.12);
+}

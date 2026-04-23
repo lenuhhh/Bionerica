@@ -1,0 +1,49 @@
+.section {
+  background: var(--bg);
+  padding: 36px 0 44px;
+  border-bottom: 1px solid var(--border);
+}
+
+.logosRow {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  color: #9aaa9a;
+  opacity: 0.55;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  cursor: default;
+  flex-shrink: 0;
+}
+
+.logo:hover {
+  opacity: 0.85;
+  color: var(--dark-mid);
+}
+
+.logo svg {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 860px) {
+  .logosRow {
+    justify-content: center;
+    gap: 24px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logosRow {
+    gap: 16px;
+  }
+  .logo svg { height: 22px; }
+}

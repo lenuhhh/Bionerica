@@ -1,0 +1,5 @@
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+@media(max-width:768px){ .grid { grid-template-columns:1fr; } }
+.img { width: 100%; border-radius: var(--radius); object-fit: cover; }
+.title { font-size: clamp(2rem,4vw,2.8rem); margin: 12px 0 16px; }
+.desc { color: var(--text-muted); line-height: 1.8; margin-bottom: 28px; }

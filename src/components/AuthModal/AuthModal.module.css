@@ -1,0 +1,373 @@
+/* AUTH MODAL — Full-screen split layout */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(10,20,10,.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: fadeIn .2s ease;
+}
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+/* ── Sheet (the white card) ───────────────────────────── */
+.sheet {
+  display: flex;
+  width: 100%;
+  max-width: 860px;
+  min-height: 520px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,.35);
+  animation: slideUp .25s cubic-bezier(.22,.61,.36,1);
+}
+@keyframes slideUp {
+  from { transform: translateY(28px); opacity: 0 }
+  to   { transform: translateY(0);    opacity: 1 }
+}
+
+/* ── BRAND PANEL (left) ───────────────────────────────── */
+.brand {
+  flex: 0 0 42%;
+  background: linear-gradient(150deg, #0e1e0e 0%, #162614 40%, #1f3a20 75%, #2a5030 100%);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.brandDecor {
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.brandInner { position: relative; z-index: 1; }
+
+.brandLogo {
+  width: 56px;
+  height: 56px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8fba8f;
+  margin-bottom: 20px;
+}
+
+.brandName {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #fff;
+  margin: 0 0 8px;
+  letter-spacing: -.01em;
+}
+
+.brandTagline {
+  font-size: 13px;
+  color: rgba(255,255,255,.55);
+  line-height: 1.65;
+  margin: 0 0 28px;
+}
+
+.featureList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: rgba(255,255,255,.8);
+  line-height: 1.4;
+}
+
+.featureIcon {
+  width: 32px;
+  height: 32px;
+  background: rgba(255,255,255,.08);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+/* ── FORM PANEL (right) ───────────────────────────────── */
+.form {
+  flex: 1;
+  background: #fff;
+  padding: 40px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.formInner {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1.5px solid #e8e8e8;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.closeBtn:hover { background: #f5f5f5; color: #222; border-color: #ccc; }
+
+.mobileLogo {
+  display: none;
+  width: 44px;
+  height: 44px;
+  background: #162614;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  color: #8fba8f;
+  margin-bottom: 20px;
+}
+
+.badge {
+  display: inline-block;
+  background: #eef7ee;
+  color: #3a7a3a;
+  border-radius: 50px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  margin-bottom: 14px;
+}
+
+.heading {
+  font-family: Georgia, serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: #0e1e0e;
+  margin: 0 0 10px;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+}
+
+.sub {
+  font-size: 13px;
+  color: #6a7a6a;
+  line-height: 1.65;
+  margin: 0 0 28px;
+}
+
+/* ── Google button ─────────────────────────────────────── */
+.googleBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1.5px solid #e0dbd2;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: transform .12s, box-shadow .12s, border-color .15s;
+  margin-bottom: 18px;
+  min-height: 52px;
+}
+.googleBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.1);
+  border-color: #c8c0b4;
+}
+.googleBtn:active:not(:disabled) { transform: translateY(0); }
+.googleBtn:disabled { opacity: .6; cursor: not-allowed; }
+.googleBtn > span:nth-child(2) { flex: 1; text-align: left; padding: 0 4px; }
+
+.googleBadge {
+  font-size: 10px;
+  font-weight: 600;
+  color: #999;
+  background: #f4f4f4;
+  border-radius: 6px;
+  padding: 3px 8px;
+  letter-spacing: .03em;
+  flex-shrink: 0;
+}
+
+/* ── Spinner ──────────────────────────────────────────── */
+.spinner {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(26,46,26,.15);
+  border-top-color: #243e27;
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+  margin: 0 auto;
+}
+@keyframes spin { to { transform: rotate(360deg) } }
+
+/* ── Error ─────────────────────────────────────────────── */
+.error {
+  background: #fff4f4;
+  border: 1px solid #fcc;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #c00;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+/* ── Mobile features (hidden on desktop) ──────────────── */
+.mobileFeatures {
+  display: none;
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 14px 16px;
+  background: #f6faf6;
+  border-radius: 12px;
+  border: 1px solid #dceadc;
+  gap: 10px;
+  flex-direction: column;
+  font-size: 12.5px;
+  color: #3a5a3a;
+  line-height: 1.4;
+}
+.mobileFeatures li { display: flex; gap: 8px; align-items: flex-start; }
+
+/* ── Privacy ───────────────────────────────────────────── */
+.privacy {
+  font-size: 11px;
+  color: #b0b8b0;
+  text-align: center;
+  line-height: 1.6;
+  margin: 0;
+}
+.privacy a { color: #5a8a5a; text-decoration: underline; text-underline-offset: 2px; }
+.privacy a:hover { color: #2d5a2d; }
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════ */
+@media (max-width: 700px) {
+  .overlay { padding: 0; align-items: flex-end; }
+
+  .sheet {
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+    min-height: auto;
+    border-radius: 24px 24px 0 0;
+    max-height: 96dvh;
+    overflow-y: auto;
+  }
+
+  .brand { display: none; }
+
+  .form {
+    padding: 28px 24px 36px;
+    justify-content: flex-start;
+  }
+
+  .formInner { max-width: 100%; }
+  .mobileLogo { display: flex; }
+  .heading { font-size: 26px; }
+  .mobileFeatures { display: flex; }
+  .closeBtn { top: 16px; right: 16px; }
+}
+
+@media (max-width: 380px) {
+  .form { padding: 24px 18px 32px; }
+  .heading { font-size: 24px; }
+}
+
+/* ── Dark theme ────────────────────────────────────────────────── */
+:global([data-theme="dark"]) .form {
+  background: #121f12;
+}
+:global([data-theme="dark"]) .closeBtn {
+  background: #1a2e1a;
+  border-color: rgba(100,160,100,0.25);
+  color: #7a9a7a;
+}
+:global([data-theme="dark"]) .closeBtn:hover {
+  background: #243e24;
+  color: #c8e0c8;
+  border-color: rgba(100,160,100,0.45);
+}
+:global([data-theme="dark"]) .heading {
+  color: #c8e0c8;
+}
+:global([data-theme="dark"]) .sub {
+  color: #7a9a7a;
+}
+:global([data-theme="dark"]) .googleBtn {
+  background: #1a2e1a;
+  border-color: rgba(100,160,100,0.25);
+  color: #c8e0c8;
+  box-shadow: none;
+}
+:global([data-theme="dark"]) .googleBtn:hover:not(:disabled) {
+  border-color: rgba(100,160,100,0.55);
+  box-shadow: 0 4px 16px rgba(0,0,0,.35);
+  background: #1f3a20;
+}
+:global([data-theme="dark"]) .googleBadge {
+  background: #243e24;
+  color: #7a9a7a;
+}
+:global([data-theme="dark"]) .badge {
+  background: rgba(74,124,89,0.18);
+  color: #7acf8a;
+}
+:global([data-theme="dark"]) .mobileFeatures {
+  background: #1a2e1a;
+  border-color: rgba(100,160,100,0.2);
+  color: #7acf8a;
+}
+:global([data-theme="dark"]) .privacy {
+  color: #5a7a5a;
+}
+:global([data-theme="dark"]) .privacy a {
+  color: #6aaa7a;
+}
+:global([data-theme="dark"]) .error {
+  background: rgba(180,0,0,0.15);
+  border-color: rgba(180,0,0,0.35);
+  color: #f08080;
+}

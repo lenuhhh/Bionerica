@@ -1,0 +1,13 @@
+.top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 36px; flex-wrap: wrap; gap: 16px; }
+.title { font-size: clamp(1.8rem,4vw,2.6rem); margin-top: 8px; }
+.grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+@media(max-width:900px){ .grid { grid-template-columns: 1fr; } }
+.card { background: var(--cream); border-radius: var(--radius-sm); overflow: hidden; cursor: pointer; transition: transform .3s, box-shadow .3s; }
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.imgWrap { height: 180px; overflow: hidden; }
+.imgWrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.card:hover .imgWrap img { transform: scale(1.06); }
+.info { padding: 18px 20px; }
+.cat { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--green-accent); }
+.postTitle { font-size: 15px; font-weight: 600; color: var(--dark); margin: 6px 0 8px; line-height: 1.4; }
+.date { font-size: 12px; color: var(--text-muted); }

@@ -1,0 +1,281 @@
+/* ── Fonts ─────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ── Variables ─────────────────────────────────────────────── */
+:root {
+  --bg:           #f0ece3;
+  --bg-card:      #f7f4ee;
+  --cream:        #f5f1e9;
+  --dark:         #1a2e1a;
+  --dark-mid:     #2d4a2d;
+  --green-accent: #4a7c59;
+  --green-light:  #8fba8f;
+  --orange:       #c47a3a;
+  --text:         #1a2e1a;
+  --text-muted:   #6b7c6b;
+  --border:       #e2ddd5;
+  --radius:       20px;
+  --radius-sm:    12px;
+  --shadow:       0 2px 12px rgba(26,46,26,.08);
+  --shadow-lg:    0 12px 40px rgba(26,46,26,.14);
+  --font-serif:   'Cormorant Garamond', Georgia, serif;
+  --font-sans:    'DM Sans', system-ui, sans-serif;
+  --ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out:     cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:  cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ── Reset & Base ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  /* Native smooth scroll — overridden by JS lenis-style below */
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  cursor: none; /* custom cursor takes over */
+}
+
+/* ── Smooth scrolling via CSS (momentum) ───────────────────── */
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--green-light);
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--green-accent); }
+
+/* ── Page transition wrapper ────────────────────────────────── */
+main {
+  animation: pageIn 0.45s var(--ease-out) both;
+}
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Typography ─────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--dark);
+}
+
+p { line-height: 1.75; }
+
+a { color: inherit; text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--green-accent); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+button { font-family: var(--font-sans); cursor: none; border: none; outline: none; }
+input, textarea, select { font-family: var(--font-sans); }
+
+/* ── Layout ─────────────────────────────────────────────────── */
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+section { padding: 80px 0; }
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--dark);
+  color: #fff;
+  padding: 13px 26px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: none;
+  border: none;
+  transition: background 0.25s var(--ease-out),
+              transform 0.25s var(--ease-spring),
+              box-shadow 0.25s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn-primary:hover {
+  background: var(--dark-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(26,46,26,.22);
+  color: #fff;
+}
+.btn-primary:active { transform: scale(0.97); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent;
+  color: var(--dark);
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: none;
+  border: 1.5px solid var(--border);
+  transition: border-color 0.25s, background 0.25s, transform 0.25s var(--ease-spring), color 0.2s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn-outline:hover {
+  border-color: var(--dark);
+  background: var(--dark);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.btn-outline:active { transform: scale(0.97); }
+
+/* ── Eyebrow ────────────────────────────────────────────────── */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--green-accent);
+  margin-bottom: 10px;
+}
+
+/* ── Serif italic highlight ─────────────────────────────────── */
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--green-accent);
+}
+
+/* ── Forms ───────────────────────────────────────────────────── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--dark);
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: var(--font-sans);
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--green-accent);
+  box-shadow: 0 0 0 3px rgba(74,124,89,0.12);
+}
+.form-group textarea { resize: vertical; min-height: 100px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+
+/* ── Scroll reveal ───────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ── Animations ──────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Selection ───────────────────────────────────────────────── */
+::selection {
+  background: rgba(74,124,89,0.2);
+  color: var(--dark);
+}
+
+/* ── Dark theme ──────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg:           #111111;
+  --bg-card:      #1e1e1e;
+  --cream:        #1a1a1a;
+  --dark:         #e8e4da;
+  --dark-mid:     #c8c4ba;
+  --green-accent: #6aaa7a;
+  --green-light:  #7aba8a;
+  --orange:       #c07050;
+  --text:         #c8c4ba;
+  --text-muted:   #6a6a62;
+  --border:       rgba(255,255,255,0.08);
+  --shadow:       0 2px 12px rgba(0,0,0,0.45);
+  --shadow-lg:    0 12px 40px rgba(0,0,0,0.60);
+  color-scheme: dark;
+}
+
+[data-theme="dark"] body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Dark: form inputs */
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group textarea,
+[data-theme="dark"] .form-group select {
+  background: #121f12;
+  color: var(--text);
+  border-color: rgba(100,160,100,0.22);
+}
+[data-theme="dark"] .form-group input::placeholder,
+[data-theme="dark"] .form-group textarea::placeholder {
+  color: var(--text-muted);
+}
+[data-theme="dark"] .form-group input:focus,
+[data-theme="dark"] .form-group textarea:focus,
+[data-theme="dark"] .form-group select:focus {
+  border-color: var(--green-accent);
+  background: #151f15;
+}
+[data-theme="dark"] .btn-outline:hover {
+  color: #0d1a0d;
+}

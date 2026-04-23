@@ -1,0 +1,26 @@
+.section {
+  position: relative;
+  background: var(--dark);
+  overflow: hidden;
+}
+.section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=1600&q=75&fit=crop');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 0;
+}
+.inner { padding: 80px 0; text-align: center; position: relative; z-index: 1; }
+.title { font-size: clamp(1.8rem,4vw,2.8rem); color: #fff; margin: 12px 0 48px; }
+.grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+@media(max-width:768px){ .grid { grid-template-columns: repeat(2,1fr); } }
+.step { background: rgba(255,255,255,.07); border-radius: var(--radius-sm); padding: 28px 20px; text-align: left; backdrop-filter: blur(4px); border: 1px solid rgba(143,186,143,.12); }
+.icon { font-size: 28px; margin-bottom: 12px; }
+.stepNum { font-size: 11px; font-weight: 700; color: var(--green-light); letter-spacing: .12em; margin-bottom: 8px; }
+.stepTitle { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+.stepDesc { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.6; }
+.iconWrap { width:52px;height:52px;background:rgba(143,186,143,.15);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px; }
+

@@ -1,0 +1,138 @@
+.page { padding-top: 68px; min-height: 100vh; }
+.inner { padding: 60px 0 80px; }
+.top { margin-bottom: 48px; }
+.title { font-size: clamp(32px,4vw,52px); margin-top: 8px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* Info panel */
+.info {
+  background: var(--dark);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+}
+.infoRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.infoRow:last-of-type { border-bottom: none; }
+.infoIconWrap {
+  width: 38px; height: 38px;
+  background: rgba(255,255,255,.08);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.infoLabel {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 3px;
+  font-family: var(--font-sans);
+}
+.infoVal {
+  font-size: 14px;
+  color: #fff;
+  font-family: var(--font-sans);
+  line-height: 1.4;
+}
+.socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+.socialBtn {
+  width: 38px; height: 38px;
+  background: rgba(255,255,255,.08);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.6);
+  transition: all .2s;
+  text-decoration: none;
+}
+.socialBtn:hover {
+  background: rgba(255,255,255,.18);
+  color: #fff;
+}
+
+/* Form */
+.formCard {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 36px;
+  box-shadow: 0 2px 16px rgba(26,46,26,0.07);
+}
+.formTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Labels with icons */
+:global(.form-group) label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Send button with icon */
+:global(.btn-primary) {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Success state */
+.success {
+  text-align: center;
+  padding: 40px 20px;
+}
+.successIcon {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+.success h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: var(--dark);
+}
+.success p {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+@media (max-width: 860px) {
+  .grid { grid-template-columns: 1fr; }
+  .info { order: 2; }
+  .formCard { order: 1; }
+}
+@media (max-width: 600px) {
+  .formCard { padding: 24px 20px; }
+}
+
+/* ── Dark theme ────────────────────────────────────────────────── */
+:global([data-theme="dark"]) .formCard {
+  background: #121f12;
+  box-shadow: 0 2px 16px rgba(0,0,0,.30);
+}
+:global([data-theme="dark"]) .formTitle {
+  color: var(--dark);
+}

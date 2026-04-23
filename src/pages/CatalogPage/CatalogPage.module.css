@@ -1,0 +1,24 @@
+.page { padding-top: 68px; min-height: 100vh; }
+.inner { padding: 60px 0; }
+.top { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 32px; flex-wrap: wrap; gap: 20px; }
+.title { font-size: clamp(36px,4vw,52px); margin-top: 8px; }
+.sub { color: var(--text-muted); margin-top: 10px; font-size: 15px; }
+.sortSelect { border: 1.5px solid var(--border); border-radius: 100px; padding: 10px 18px; font-family: var(--font-sans); font-size: 13px; background: transparent; cursor: pointer; color: var(--dark); appearance: none; }
+.cats { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px; }
+.catBtn { padding: 8px 18px; border-radius: 100px; border: 1.5px solid var(--border); background: transparent; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; color: var(--text); font-family: var(--font-sans); }
+.catBtn:hover { border-color: var(--dark); }
+.active { background: var(--dark) !important; color: #fff !important; border-color: var(--dark) !important; }
+.grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+@media (max-width: 1024px) { .grid { grid-template-columns: repeat(2,1fr); } }
+
+/* ── Dark theme ────────────────────────────────────────────────── */
+:global([data-theme="dark"]) .sortSelect {
+  background: var(--bg-card);
+  color-scheme: dark;
+}
+:global([data-theme="dark"]) .active {
+  background: var(--green-accent) !important;
+  color: #0d1a0d !important;
+  border-color: var(--green-accent) !important;
+}
+@media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }
